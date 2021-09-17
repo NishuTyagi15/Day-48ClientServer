@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Ajax Services And Promise</title>
-    <script src="../http_services.css"></script>
+    <style>
+        .body {
+            margin: auto;
+        }
+        div {
+            border: 1px solid black;
+            background-color: lightblue;
+            padding: 50px;
+            width: 80%;
+            font-size: xx-large;
+            margin-top: 50px;
+        }
+    </style>
     <script src="../http_services.js"></script>
 </head>
 <body>
@@ -14,7 +26,7 @@
     <div id="post_services"></div>
     <script>
         const getElem = document.querySelector("#get_services");
-        const getURL = "http://localhost:3000/EmployeePayrollDB/1";
+        const getURL = "http://127.0.0.1:3000/EmployeePayrollDB/1";
         makeServiceCall("GET", getURL, true)
             .then(responseText => {
                 getElem.textContent = "Get User Data: "+responseText;
@@ -24,7 +36,7 @@
             });
 
         const deleteElem = document.querySelector("#delete_services");
-        const deleteURL = "http://localhost:3000/EmployeePayrollDB/3";
+        const deleteURL = "http://127.0.0.1:3000/EmployeePayrollDB/3";
         makeServiceCall("DELETE", deleteURL, false)
             .then(responseText => {
                 deleteElem.textContent = "Delete User Data: "+responseText;
@@ -35,7 +47,7 @@
 
         const empPayrollData  = 
         {
-            "_name": 'Krati',
+            "_name": 'Diksha',
             "_gender": 'female',
             "_department": [
                 'HR'
@@ -46,7 +58,7 @@
             "_profilePic": '/assets/profile-images/Ellipse 1.png'
         };
         const postElem = document.querySelector("#post_services");
-        const postURL = "http://localhost:3000/EmployeePayrollDB";
+        const postURL = "http://127.0.0.1:3000/EmployeePayrollDB";
         makeServiceCall("POST", postURL, true, empPayrollData)
             .then(responseText => {
                 postElem.textContent = "New User Added: "+responseText;
